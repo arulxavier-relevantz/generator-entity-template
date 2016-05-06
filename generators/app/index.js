@@ -34,25 +34,25 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'), {
-        name: this.props.name
+        name: this.props.someAnswer
       }
     );
     this.fs.copyTpl(
       this.templatePath('_index.ts'),
       this.destinationPath('index.ts'), {
-        name: this.props.name
+        name: this.props.someAnswer
       }
     );
     this.fs.copyTpl(
       this.templatePath('_lib/_EntityModel.ts'),
-      this.destinationPath('lib/' + this.props.name + 'Model.ts'), {
-        name: this.props.name
+      this.destinationPath('lib/' + this.props.someAnswer + 'Model.ts'), {
+        name: this.props.someAnswer
       }
     );
     this.fs.copyTpl(
       this.templatePath('_lib/_IEntityModel.ts'),
-      this.destinationPath('lib/I' + this.props.name + 'Model.ts'), {
-        name: this.props.name
+      this.destinationPath('lib/I' + this.props.someAnswer + 'Model.ts'), {
+        name: this.props.someAnswer
       }
     );
     
