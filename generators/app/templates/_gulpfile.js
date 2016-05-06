@@ -2,34 +2,27 @@ var gulp = require("gulp");
 var gulpTypings = require("gulp-typings");
 var ts = require('gulp-typescript');
 
-gulp.task("default", ["installTypings", "compile", "compileIndex"]);
+gulp.task('installTypings', function () {  
+    return gulp.src("./typings.json")
+        .pipe(gulpTypings());
+});
 
-gulp.task("compile", function () {
-  return gulp
+gulp.task('compile', ['installTypings'], function () {  
+    return gulp
     .src(["lib/*.ts", 'typings/index.d.ts'])
     .pipe(ts({
         module: "commonjs",
-        target: "ES5",
-        sourcemap: false,
-        logErrors: true
+        target: "ES5"
     }))
-    .pipe(gulp.dest("lib"))    
+    .pipe(gulp.dest("lib"))
 });
 
-gulp.task("compileIndex", function () {
-  return gulp
+gulp.task('default', ["compile"], function () {  
+    return gulp
     .src(["*.ts", 'typings/index.d.ts'])
     .pipe(ts({
         module: "commonjs",
-        target: "ES5",
-        sourcemap: false,
-        logErrors: true
+        target: "ES5"
     }))
-    .pipe(gulp.dest("."))    
+    .pipe(gulp.dest("."))   
 });
-
-gulp.task("installTypings",function(){
-    gulp.src("./typings.json")
-        .pipe(gulpTypings()); //will install all typingsfiles in pipeline. 
-});
-

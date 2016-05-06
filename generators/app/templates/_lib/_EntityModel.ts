@@ -1,4 +1,3 @@
-/// <reference path="../typings/main.d.ts" />
 import {I<%= name %>Model} from "./I<%= name %>Model";
 import * as Mongoose from "mongoose";
 

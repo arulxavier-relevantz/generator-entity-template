@@ -1,4 +1,3 @@
-
 import * as mongoose from "mongoose";
 
 interface I<%= name %>Model extends mongoose.Document {
