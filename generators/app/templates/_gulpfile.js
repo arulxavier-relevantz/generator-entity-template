@@ -6,7 +6,7 @@ gulp.task("default", ["installTypings", "compile", "compileIndex"]);
 
 gulp.task("compile", function () {
   return gulp
-    .src("lib/*.ts")
+    .src(["lib/*.ts", 'typings/index.d.ts'])
     .pipe(ts({
         module: "commonjs",
         target: "ES5",
@@ -18,7 +18,7 @@ gulp.task("compile", function () {
 
 gulp.task("compileIndex", function () {
   return gulp
-    .src("*.ts")
+    .src(["*.ts", 'typings/index.d.ts'])
     .pipe(ts({
         module: "commonjs",
         target: "ES5",
