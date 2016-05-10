@@ -1,7 +1,8 @@
 import * as mongoose from "mongoose";
 
 interface I<%= name %>Model extends mongoose.Document {
-  employeeID: string,
+    entityVersion: string,
+    <%= name %>ID: string,
     name: {
         first: string,
         last: string

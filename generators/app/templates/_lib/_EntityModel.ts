@@ -1,11 +1,18 @@
 import {I<%= name %>Model} from "./I<%= name %>Model";
 import * as Mongoose from "mongoose";
+let application = require('../package.json');
 
 class <%= name %>Schema {
 
   static get mongooseSchema () {
        let mongooseSchema =  new Mongoose.Schema({
-           employeeID: {
+           entityVersion: {
+               type: String,
+               required: true,
+               unique: true,
+               default: application.version
+           },
+           <%= name %>ID: {
                 type: String,
                 required: true,
                 unique: true

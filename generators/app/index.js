@@ -81,6 +81,12 @@ module.exports = yeoman.Base.extend({
         name: this.props.name.toLowerCase()
       }
     );
+    this.fs.copyTpl(
+      this.templatePath('_lib/_test/_test.ts'),
+      this.destinationPath('lib/test/test.ts'), {
+        name: this.props.name
+      }
+    );
 
     //Copy static files
     this.fs.copy(
