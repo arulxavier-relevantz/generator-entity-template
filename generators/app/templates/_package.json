@@ -1,45 +1,37 @@
 {
   "name": "entity-<%= name %>",
   "version": "<%= version %>",
-  "description": "Employee Interface and Model Entity",
+  "description": "<%= description %>",
   "main": "index.js",
   "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/frontians-web/entity-employee.git"
+    "test": "node ./lib/test/test.js"
   },
   "keywords": [
     "npm",
     "module"
   ],
-  "author": "arul",
+  "author": "<%= author %>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/frontians-web/entity-employee/issues"
-  },
-  "homepage": "https://github.com/frontians-web/entity-employee#readme",
   "dependencies": {
-    "body-parser": "^1.14.2",
+    "body-parser": "1.14.2",
     "clear": "0.0.1",
-    "connect": "^3.4.0",
-    "express": "^4.13.3",
-    "gulp": "^3.9.0",
-    "gulp-nodemon": "^2.0.6",
-    "gulp-strip-debug": "^1.1.0",
-    "gulp-tsc": "^1.1.4",
-    "gulp-typescript-compiler": "^1.0.1",
-    "method-override": "^2.3.5",
-    "mongojs": "^2.2.2",
-    "mongoose": "^4.3.4",
-    "source-map-support": "^0.4.0",
-    "typescript": "^1.8.9",
-    "typings": "^0.7.12",
-    "ts-loader": "^0.8.2",
-    "gulp-typings": "^1.3.4",
-    "gulp-typescript": "^2.13.0",
+    "connect": "3.4.0",
+    "express": "4.13.3",
+    "gulp": "3.9.0",
+    "gulp-nodemon": "2.0.6",
+    "gulp-strip-debug": "1.1.0",
+    "gulp-tsc": "1.1.4",
+    "gulp-typescript-compiler": "1.0.1",
+    "gulp-typescript": "2.13.0",
+    "gulp-typings": "1.3.4",
+    "method-override": "2.3.5",
     "merge-stream": "1.0.0",
-    "mongoose-validator": "1.2.4"
+    "mongojs": "2.2.2",
+    "mongoose-validator": "1.2.4",
+    "mongoose": "4.3.4",
+    "source-map-support": "0.4.0",
+    "ts-loader": "0.8.2",
+    "typescript": "1.8.9",
+    "typings": "0.7.12"
   }
 }

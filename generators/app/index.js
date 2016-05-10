@@ -15,23 +15,33 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       type: 'input',
-      name: 'someAnswer',
-      message: 'What is your entity name?',
-      //Defaults to the project's folder name if the input is skipped
+      name: 'name',
+      message: 'name:',
       default: "Entity"
     }, {
         type: 'input',
         name: 'version',
-        message: 'What is your entity version?',
-        //Defaults to the project's folder name if the input is skipped
+        message: 'version:',
         default: "1.0.0"
+      }, {
+        type: 'input',
+        name: 'description',
+        message: 'description:',
+        default: "Mongoose Schema Model"
+      }, {
+        type: 'input',
+        name: 'author',
+        message: 'author:',
+        default: ""
       }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
-      // To access props later use this.props.someAnswer;
-      this.log(this.props.someAnswer);
+      
+      this.log(this.props.name);
       this.log(this.props.version);
+      this.log(this.props.description);
+      this.log(this.props.author);
       done();
     }.bind(this));
   },
@@ -41,8 +51,10 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'), {
-        name: this.props.someAnswer,
-        version: this.props.version
+        name: this.props.name,
+        version: this.props.version,
+        description: this.props.description,
+        author: this.props.author
       }
     );
     this.fs.copyTpl(
