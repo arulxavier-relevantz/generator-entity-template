@@ -51,7 +51,7 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'), {
-        name: this.props.name,
+        name: this.props.name.toLowerCase(),
         version: this.props.version,
         description: this.props.description,
         author: this.props.author
@@ -60,19 +60,25 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_index.ts'),
       this.destinationPath('index.ts'), {
-        name: this.props.someAnswer
+        name: this.props.name
       }
     );
     this.fs.copyTpl(
       this.templatePath('_lib/_EntityModel.ts'),
-      this.destinationPath('lib/' + this.props.someAnswer + 'Model.ts'), {
-        name: this.props.someAnswer
+      this.destinationPath('lib/' + this.props.name + 'Model.ts'), {
+        name: this.props.name
       }
     );
     this.fs.copyTpl(
       this.templatePath('_lib/_IEntityModel.ts'),
-      this.destinationPath('lib/I' + this.props.someAnswer + 'Model.ts'), {
-        name: this.props.someAnswer
+      this.destinationPath('lib/I' + this.props.name + 'Model.ts'), {
+        name: this.props.name
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath('_README.md'),
+      this.destinationPath('README.md'), {
+        name: this.props.name
       }
     );
 
@@ -88,6 +94,18 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('_typings.json'),
       this.destinationPath('typings.json')
+    );
+    this.fs.copy(
+      this.templatePath('_tsconfig.json'),
+      this.destinationPath('tsconfig.json')
+    );
+    this.fs.copy(
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore')
+    );
+    this.fs.copy(
+      this.templatePath('_LICENSE'),
+      this.destinationPath('LICENSE')
     );
   },
 
