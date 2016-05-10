@@ -2,7 +2,7 @@ import * as mongoose from "mongoose";
 
 interface I<%= name %>Model extends mongoose.Document {
     entityVersion: string,
-    <%= name %>ID: string,
+    <%= nameToLower %>ID: string,
     name: {
         first: string,
         last: string
