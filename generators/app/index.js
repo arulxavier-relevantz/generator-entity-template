@@ -31,17 +31,16 @@ module.exports = yeoman.Base.extend({
       }, {
         type: 'input',
         name: 'author',
-        message: 'author:',
-        default: ""
+        message: 'author:'
       }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
       
-      this.log(this.props.name);
+      /*this.log(this.props.name);
       this.log(this.props.version);
       this.log(this.props.description);
-      this.log(this.props.author);
+      this.log(this.props.author);*/
       done();
     }.bind(this));
   },
@@ -66,13 +65,15 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_lib/_EntityModel.ts'),
       this.destinationPath('lib/' + this.props.name + 'Model.ts'), {
-        name: this.props.name
+        name: this.props.name,
+        nameToLower: this.props.name.toLowerCase()
       }
     );
     this.fs.copyTpl(
       this.templatePath('_lib/_IEntityModel.ts'),
       this.destinationPath('lib/I' + this.props.name + 'Model.ts'), {
-        name: this.props.name
+        name: this.props.name,
+        nameToLower: this.props.name.toLowerCase()
       }
     );
     this.fs.copyTpl(

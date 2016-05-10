@@ -12,7 +12,7 @@ class <%= name %>Schema {
                unique: true,
                default: application.version
            },
-           <%= name %>ID: {
+           <%= nameToLower %>ID: {
                 type: String,
                 required: true,
                 unique: true
