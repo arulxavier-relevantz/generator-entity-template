@@ -1,6 +1,6 @@
 {
   "name": "entity-<%= name %>",
-  "version": "0.0.1",
+  "version": "<% version %>",
   "description": "Employee Interface and Model Entity",
   "main": "index.js",
   "scripts": {

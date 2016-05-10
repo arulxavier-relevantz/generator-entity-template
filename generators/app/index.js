@@ -19,12 +19,19 @@ module.exports = yeoman.Base.extend({
       message: 'What is your entity name?',
       //Defaults to the project's folder name if the input is skipped
       default: "Entity"
-    }];
+    }, {
+        type: 'input',
+        name: 'version',
+        message: 'What is your entity version?',
+        //Defaults to the project's folder name if the input is skipped
+        default: "1.0.0"
+      }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
       // To access props later use this.props.someAnswer;
       this.log(this.props.someAnswer);
+      this.log(this.props.version);
       done();
     }.bind(this));
   },
@@ -34,7 +41,8 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'), {
-        name: this.props.someAnswer
+        name: this.props.someAnswer,
+        version: this.props.version
       }
     );
     this.fs.copyTpl(
@@ -55,7 +63,7 @@ module.exports = yeoman.Base.extend({
         name: this.props.someAnswer
       }
     );
-    
+
     //Copy static files
     this.fs.copy(
       this.templatePath('_typings/_index.d.ts'),
