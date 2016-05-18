@@ -1,6 +1,6 @@
 {
   "name": "generator-entity-template",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generator for Mongoose Schema Entity Model Template",
   "homepage": "http://",
   "author": {
